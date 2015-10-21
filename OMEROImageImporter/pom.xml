@@ -23,6 +23,7 @@
 
 	<properties>
 		<main-class>OmeroImageImporter</main-class>
+		<scijava.jvm.version>1.7</scijava.jvm.version>
 	</properties>
 
 	<repositories>
