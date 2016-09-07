@@ -6,12 +6,12 @@ import java.util.Map;
 
 import javax.swing.RootPaneContainer;
 
-import edu.umassmed.omega.omeroCommons.OmeroGateway;
-import edu.umassmed.omega.omeroCommons.OmeroImporterUtilities;
-import edu.umassmed.omega.omeroCommons.data.OmeroExperimenterWrapper;
-import edu.umassmed.omega.omeroCommons.data.OmeroGroupWrapper;
-import edu.umassmed.omega.omeroCommons.data.OmeroImageWrapper;
-import edu.umassmed.omega.omeroCommons.gui.OmeroPanel;
+import edu.umassmed.omega.omero.commons.OmeroGateway;
+import edu.umassmed.omega.omero.commons.OmeroImporterUtilities;
+import edu.umassmed.omega.omero.commons.data.OmeroExperimenterWrapper;
+import edu.umassmed.omega.omero.commons.data.OmeroGroupWrapper;
+import edu.umassmed.omega.omero.commons.data.OmeroImageWrapper;
+import edu.umassmed.omega.omero.commons.gui.OmeroPanel;
 
 public class OmeroImageJPanel extends OmeroPanel {
 	
