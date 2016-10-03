@@ -31,11 +31,11 @@ public class OmeroImageJPanel extends OmeroPanel {
 		isLoaded = false;
 		OmeroGateway gateway = getGateway();
 		OmeroExperimenterWrapper expWrapper = OmeroImporterUtilities.getExperimenterWrapper(gateway);
-		System.out.println("I'm loading " + expWrapper.getStringRepresentation());
+		//System.out.println("I'm loading " + expWrapper.getStringRepresentation());
 		List<OmeroGroupWrapper> groupWrapperList = OmeroImporterUtilities.getGroupWrapper(gateway);
-		System.out.println("I'm loading " + groupWrapperList.size() + " groups");
+		//System.out.println("I'm loading " + groupWrapperList.size() + " groups");
 		Map<OmeroGroupWrapper, List<OmeroExperimenterWrapper>> leaderWrapperMap = OmeroImporterUtilities.getGroupLeaders(groupWrapperList);
-		System.out.println("I'm loading leaders for groups");
+		//System.out.println("I'm loading leaders for groups");
 		for(OmeroImageWrapper imgWrapper : getImageWrapperToBeLoadedList()) {
 			imageID = imgWrapper.getPixelsID();
 		}

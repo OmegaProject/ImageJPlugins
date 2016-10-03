@@ -23,7 +23,7 @@ import org.scijava.plugin.Parameter;
 import org.scijava.plugin.Plugin;
 import org.scijava.ui.UIService;
 
-@Plugin(type = Command.class, headless = true, menuPath = "Plugins>OmegaToolbox>OmeroImageBrowser")
+@Plugin(type = Command.class, headless = true, menuPath = "Plugins>OmegaToolbox>OmeroImageBrowser_V11.1")
 public class OmeroImageBrowser implements Command {
 
 	@Parameter(label = "Hostname")
@@ -54,7 +54,7 @@ public class OmeroImageBrowser implements Command {
 		
 		//TODO explore OmeroService and see what I can reuse from there
 		//TODO explore tutorials to see how to call command from my gui
-		//TODO explore extrapolate all functionalities from gui classes
+		//TODO extrapolate all functionalities from gui classes
 		//1 command should initialize the gui, the connection and a keep alive thread.
 		//1 command should load the images
 		OmeroGateway gateway = new OmeroGateway();
@@ -75,7 +75,7 @@ public class OmeroImageBrowser implements Command {
 		frame.pack();
 		frame.setVisible(true);
 		
-		panel.updateMessageStatus(new OmegaMessageEvent("Waiting for connection..."));
+		panel.updateStatus("Waiting for connection...");
 		
 		//TODO launch this on another thread and update the status in meanwhile we are waiting	
 		OmeroImporterUtilities.connectToGateway(frame, gateway, host, port, name, psw);
@@ -87,7 +87,7 @@ public class OmeroImageBrowser implements Command {
 		}
 		
 		client client = gateway.getClient();
-		panel.updateMessageStatus(new OmegaMessageEvent("Connection estabilished!"));
+		panel.updateStatus("Connection estabilished!");
 		
 		try {
 			panel.updateVisualizationMenu();

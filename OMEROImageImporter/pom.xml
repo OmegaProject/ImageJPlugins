@@ -7,7 +7,7 @@
 	<parent>
 		<groupId>net.imagej</groupId>
 		<artifactId>pom-imagej</artifactId>
-		<version>16.4.0</version>
+		<version>11.0.0</version>
 		<relativePath />
 	</parent>
 
@@ -109,21 +109,6 @@
 				<exclusion>
 					<artifactId>commons-beanutils</artifactId>
 					<groupId>commons-beanutils</groupId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>edu.umassmed.omega</groupId>
-			<artifactId>commons</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-			<exclusions>
-				<exclusion>
-					<artifactId>jfreechart</artifactId>
-					<groupId>jfreechart</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>jcommon</artifactId>
-					<groupId>jcommon</groupId>
 				</exclusion>
 			</exclusions>
 		</dependency>
