@@ -7,19 +7,19 @@ import net.imagej.ImageJ;
 import net.imagej.omero.OMEROCredentials;
 import net.imagej.omero.OMEROService;
 import net.imagej.omero.OMEROSession;
-import net.imagej.ops.AbstractOp;
+import net.imagej.ops.Op;
 
 import org.scijava.ItemIO;
 import org.scijava.command.Command;
-import org.scijava.convert.ConvertService;
 import org.scijava.plugin.Parameter;
 import org.scijava.plugin.Plugin;
+import org.scijava.ui.UIService;
 
 import Glacier2.CannotCreateSessionException;
 import Glacier2.PermissionDeniedException;
 
-@Plugin(type = Op.class, headless = true, menuPath = "Plugins>OmegaToolbox>OmeroImageReader_V16")
-public class OmeroImageReader extends AbstractOp {
+@Plugin(type = Op.class, headless = true, menuPath = "Plugins>OmegaToolbox>OmeroImageReader_V11.2")
+public class OmeroImageReader2 implements Op {
 	
 	@Parameter(label = "Hostname")
 	private String host = "Localhost";
@@ -33,13 +33,19 @@ public class OmeroImageReader extends AbstractOp {
 	@Parameter(label = "ID of OMERO image")
 	private Long id;
 	
+//	@Parameter(label = "Show image?")
+//	private boolean show;
+	
 	//private List<Long> ids;
 	
 	@Parameter
 	private OMEROService ome;
 	
+//	@Parameter
+//	private ConvertService cs;
+	
 	@Parameter
-	private ConvertService cs;
+	private UIService ui;
 	
 	@Parameter(type = ItemIO.OUTPUT)
 	Dataset dataset;
@@ -91,7 +97,11 @@ public class OmeroImageReader extends AbstractOp {
 			// TODO Auto-generated catch block
 			ex.printStackTrace();
 		}
+		
+//		if(show && dataset != null)
+//			ui.show(dataset);
 		//}
+		session.close();
 	}
 	
 	public static void main(final String... args) {
@@ -99,7 +109,7 @@ public class OmeroImageReader extends AbstractOp {
 		final ImageJ ij = net.imagej.Main.launch(args);
 
 		// Launch our "Hello World" command right away.
-		ij.command().run(OmeroImageReader.class, true);
+		ij.command().run(OmeroImageReader2.class, true);
 		//ij.op().run(OmeroImageReader.class, true);
 	}
 }
