@@ -18,7 +18,7 @@ import org.scijava.plugin.Plugin;
 import Glacier2.CannotCreateSessionException;
 import Glacier2.PermissionDeniedException;
 
-@Plugin(type = Op.class, headless = true, menuPath = "Plugins>OmegaToolbox>OmeroImageReader_V16")
+@Plugin(type = OmeroImageReader.class, headless = true, menuPath = "Plugins>OmegaToolbox>OmeroImageReader_V16")
 public class OmeroImageReader extends AbstractOp {
 	
 	@Parameter(label = "Hostname")

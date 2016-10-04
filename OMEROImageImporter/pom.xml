@@ -110,6 +110,14 @@
 					<artifactId>commons-beanutils</artifactId>
 					<groupId>commons-beanutils</groupId>
 				</exclusion>
+				<exclusion>
+					<artifactId>jfreechart</artifactId>
+					<groupId>jfreechart</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jcommon</artifactId>
+					<groupId>jcommon</groupId>
+				</exclusion>
 			</exclusions>
 		</dependency>
 		<dependency>

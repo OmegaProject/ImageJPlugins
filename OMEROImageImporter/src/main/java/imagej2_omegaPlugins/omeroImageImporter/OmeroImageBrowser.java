@@ -8,9 +8,6 @@ import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 import javax.swing.WindowConstants;
 
-import edu.umassmed.omega.commons.eventSystem.events.OmegaMessageEvent;
-import edu.umassmed.omega.omero.commons.OmeroGateway;
-import edu.umassmed.omega.omero.commons.OmeroImporterUtilities;
 import net.imagej.Dataset;
 import net.imagej.ImageJ;
 import net.imagej.omero.OMEROService;
@@ -22,6 +19,9 @@ import org.scijava.convert.ConvertService;
 import org.scijava.plugin.Parameter;
 import org.scijava.plugin.Plugin;
 import org.scijava.ui.UIService;
+
+import edu.umassmed.omega.omero.commons.OmeroGateway;
+import edu.umassmed.omega.omero.commons.OmeroImporterUtilities;
 
 @Plugin(type = Command.class, headless = true, menuPath = "Plugins>OmegaToolbox>OmeroImageBrowser_V11.1")
 public class OmeroImageBrowser implements Command {

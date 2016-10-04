@@ -10,7 +10,6 @@ import net.imagej.omero.OMEROSession;
 import net.imagej.ops.Op;
 
 import org.scijava.ItemIO;
-import org.scijava.command.Command;
 import org.scijava.plugin.Parameter;
 import org.scijava.plugin.Plugin;
 import org.scijava.ui.UIService;
@@ -109,7 +108,7 @@ public class OmeroImageReader2 implements Op {
 		final ImageJ ij = net.imagej.Main.launch(args);
 
 		// Launch our "Hello World" command right away.
-		ij.command().run(OmeroImageReader2.class, true);
+		ij.op().run(OmeroImageReader2.class);
 		//ij.op().run(OmeroImageReader.class, true);
 	}
 }

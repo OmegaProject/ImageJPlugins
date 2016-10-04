@@ -4,20 +4,14 @@ import java.io.IOException;
 
 import net.imagej.Dataset;
 import net.imagej.ImageJ;
-import net.imagej.omero.OMEROCredentials;
 import net.imagej.omero.OMEROService;
-import net.imagej.omero.OMEROSession;
 import net.imagej.ops.Op;
 import omero.client;
 
 import org.scijava.ItemIO;
-import org.scijava.command.Command;
 import org.scijava.plugin.Parameter;
 import org.scijava.plugin.Plugin;
 import org.scijava.ui.UIService;
-
-import Glacier2.CannotCreateSessionException;
-import Glacier2.PermissionDeniedException;
 
 @Plugin(type = Op.class, headless = true, menuPath = "Plugins>OmegaToolbox>OmeroImageReader_V11.3")
 public class OmeroImageReader3 implements Op {

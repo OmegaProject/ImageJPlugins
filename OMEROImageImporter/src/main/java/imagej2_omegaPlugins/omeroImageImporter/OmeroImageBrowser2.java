@@ -1,44 +1,26 @@
 package imagej2_omegaPlugins.omeroImageImporter;
 
 import java.awt.BorderLayout;
-import java.io.File;
-import java.io.IOException;
 import java.rmi.ServerError;
 
 import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 import javax.swing.WindowConstants;
 
-import edu.umassmed.omega.commons.eventSystem.events.OmegaMessageEvent;
-import edu.umassmed.omega.omero.commons.OmeroGateway;
-import edu.umassmed.omega.omero.commons.OmeroImporterUtilities;
 import net.imagej.Dataset;
 import net.imagej.ImageJ;
 import net.imagej.omero.OMEROService;
 import net.imagej.ops.OpService;
 import omero.client;
 
-import org.scijava.Context;
 import org.scijava.ItemIO;
-import org.scijava.Prioritized;
 import org.scijava.command.Command;
-import org.scijava.convert.ConvertService;
-import org.scijava.display.Display;
 import org.scijava.plugin.Parameter;
 import org.scijava.plugin.Plugin;
-import org.scijava.plugin.PluginInfo;
-import org.scijava.ui.ApplicationFrame;
-import org.scijava.ui.Desktop;
-import org.scijava.ui.DialogPrompt;
-import org.scijava.ui.StatusBar;
-import org.scijava.ui.SystemClipboard;
-import org.scijava.ui.ToolBar;
 import org.scijava.ui.UIService;
-import org.scijava.ui.UserInterface;
-import org.scijava.ui.DialogPrompt.MessageType;
-import org.scijava.ui.DialogPrompt.OptionType;
-import org.scijava.ui.console.ConsolePane;
-import org.scijava.ui.viewer.DisplayWindow;
+
+import edu.umassmed.omega.omero.commons.OmeroGateway;
+import edu.umassmed.omega.omero.commons.OmeroImporterUtilities;
 
 @Plugin(type = Command.class, headless = true, menuPath = "Plugins>OmegaToolbox>OmeroImageBrowser_V11.2")
 public class OmeroImageBrowser2 implements Command {
