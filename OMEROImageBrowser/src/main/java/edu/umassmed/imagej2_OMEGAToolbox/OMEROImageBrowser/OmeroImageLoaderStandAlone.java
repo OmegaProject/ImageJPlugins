@@ -32,16 +32,8 @@ public class OmeroImageLoaderStandAlone implements Op {
 	@Parameter(label = "ID of OMERO image")
 	private Long id;
 	
-//	@Parameter(label = "Show image?")
-//	private boolean show;
-	
-	//private List<Long> ids;
-	
 	@Parameter
 	private OMEROService ome;
-	
-//	@Parameter
-//	private ConvertService cs;
 	
 	@Parameter
 	private UIService ui;
@@ -86,7 +78,6 @@ public class OmeroImageLoaderStandAlone implements Op {
 		if(session.getClient() == null)
 			return;
 		
-		//for(Long id : ids) {
 		try {
 			dataset = ome.downloadImage(session.getClient(), id);
 		} catch (omero.ServerError ex) {
@@ -97,18 +88,11 @@ public class OmeroImageLoaderStandAlone implements Op {
 			ex.printStackTrace();
 		}
 		
-//		if(show && dataset != null)
-//			ui.show(dataset);
-		//}
 		session.close();
 	}
 	
 	public static void main(final String... args) {
-		// Launch ImageJ as usual.
 		final ImageJ ij = net.imagej.Main.launch(args);
-
-		// Launch our "Hello World" command right away.
 		ij.command().run(OmeroImageLoaderStandAlone.class, true);
-		//ij.op().run(OmeroImageReader.class, true);
 	}
 }

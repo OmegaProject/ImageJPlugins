@@ -41,11 +41,7 @@ public class OmeroImageReader implements Op {
 	}
 	
 	public static void main(final String... args) {
-		// Launch ImageJ as usual.
 		final ImageJ ij = net.imagej.Main.launch(args);
-
-		// Launch our "Hello World" command right away.
 		ij.command().run(OmeroImageReader.class, true);
-		//ij.op().run(OmeroImageReader.class, true);
 	}
 }

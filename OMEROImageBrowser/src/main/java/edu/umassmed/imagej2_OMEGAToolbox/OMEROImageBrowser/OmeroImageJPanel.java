@@ -11,13 +11,11 @@ import edu.umassmed.omega.omero.commons.gui.OmeroPanel;
 public class OmeroImageJPanel extends OmeroPanel {
 	
 	private long imageID;
-	//private boolean isLoaded;
 	private OmeroImageBrowser browser;
 	
 	public OmeroImageJPanel(RootPaneContainer parent,OmeroGateway gateway, OmeroImageBrowser browser) {
 		super(parent, gateway);
 		this.browser = browser;
-		//isLoaded = false;
 	}
 
 	private static final long serialVersionUID = -5740459087763362607L;
