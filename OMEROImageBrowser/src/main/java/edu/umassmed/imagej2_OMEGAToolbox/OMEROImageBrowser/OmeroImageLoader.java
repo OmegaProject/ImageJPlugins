@@ -13,7 +13,7 @@ import org.scijava.plugin.Parameter;
 import org.scijava.plugin.Plugin;
 
 @Plugin(type = Op.class, headless = true)
-public class OmeroImageReader implements Op {
+public class OmeroImageLoader implements Op {
 	
 	@Parameter
 	private client client;
@@ -38,10 +38,5 @@ public class OmeroImageReader implements Op {
 			// TODO Auto-generated catch block
 			ex.printStackTrace();
 		}
-	}
-	
-	public static void main(final String... args) {
-		final ImageJ ij = net.imagej.Main.launch(args);
-		ij.command().run(OmeroImageReader.class, true);
 	}
 }

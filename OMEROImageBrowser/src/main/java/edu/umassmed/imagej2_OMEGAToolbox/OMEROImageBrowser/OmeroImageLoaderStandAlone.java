@@ -17,7 +17,7 @@ import org.scijava.ui.UIService;
 import Glacier2.CannotCreateSessionException;
 import Glacier2.PermissionDeniedException;
 
-@Plugin(type = Op.class, headless = true, menuPath = "Plugins>OmegaToolbox>OmeroImageLoaderStandAlone")
+@Plugin(type = Op.class, headless = true, menuPath = "Plugins>OmegaToolbox>OmeroImageLoader")
 public class OmeroImageLoaderStandAlone implements Op {
 	
 	@Parameter(label = "Hostname")

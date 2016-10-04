@@ -87,7 +87,7 @@ public class OmeroImageBrowser implements Command {
 	}
 	
 	public void loadImage(Long id) {
-		Dataset dataset = (Dataset) op.run(OmeroImageReader.class, client, id);
+		Dataset dataset = (Dataset) op.run(OmeroImageLoader.class, client, id);
 		ui.show(dataset);
 		
 	}
