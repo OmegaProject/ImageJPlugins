@@ -9,10 +9,13 @@ import javax.swing.WindowConstants;
 
 import net.imagej.Dataset;
 import net.imagej.ImageJ;
+import net.imagej.omero.DefaultOMEROService;
+import net.imagej.omero.OMEROCredentials;
 import net.imagej.omero.OMEROService;
 import net.imagej.ops.OpService;
 import omero.client;
 
+import org.scijava.Context;
 import org.scijava.ItemIO;
 import org.scijava.command.Command;
 import org.scijava.plugin.Parameter;
@@ -33,9 +36,6 @@ public class OmeroImageBrowser implements Command {
 	private String name;
 	@Parameter(label = "Password")
 	private String psw;
-	
-	@Parameter
-	private OMEROService ome;
 	
 	@Parameter
 	private UIService ui;
@@ -87,17 +87,19 @@ public class OmeroImageBrowser implements Command {
 		} catch (ServerError ex) {
 			//TODO Throw error dialog
 			ex.printStackTrace();
-		}		
+		}
 	}
 	
 	public void loadImage(Long id) {
-		Dataset dataset = (Dataset) op.run(OmeroImageLoaderStandAlone.class, client, id);
+		Dataset dataset = (Dataset) op.run(OmeroImageLoader.class, client, id);
 		ui.show(dataset);
 		
 	}
 	
 	public static void main(final String... args) {
-		final ImageJ ij = net.imagej.Main.launch(args);
+		Context context = new Context();
+		ImageJ ij = new ImageJ(context);
+		ij.launch(args);
 		ij.command().run(OmeroImageBrowser.class, true);
 	}
 }

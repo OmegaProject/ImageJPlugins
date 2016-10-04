@@ -8,9 +8,9 @@ import net.imagej.omero.OMEROCredentials;
 import net.imagej.omero.OMEROService;
 import net.imagej.omero.OMEROSession;
 import net.imagej.ops.AbstractOp;
+import net.imagej.ops.Op;
 
 import org.scijava.ItemIO;
-import org.scijava.command.Command;
 import org.scijava.convert.ConvertService;
 import org.scijava.plugin.Parameter;
 import org.scijava.plugin.Plugin;
