@@ -31,6 +31,8 @@ import edu.umassmed.omega.omero.commons.gui.OmeroPluginGUIConstants;
 
 @Plugin(type = Command.class, headless = true, menuPath = "Plugins>OmegaToolbox>OmeroImageBrowser")
 public class OmeroImageBrowser implements Command {
+	
+	public static final String LOADING_WARNING_IMAGEJ = "You are trying to load more then 5 image, this could take a long time, are you sure?";
 
 	@Parameter(label = "Hostname")
 	private String host = "Localhost";
@@ -95,7 +97,7 @@ public class OmeroImageBrowser implements Command {
 	}
 	
 	public boolean getConfirmation() {
-		Result res = ui.showDialog(OmeroPluginGUIConstants.LOADING_WARNING, MessageType.QUESTION_MESSAGE, OptionType.YES_NO_OPTION);
+		Result res = ui.showDialog(LOADING_WARNING_IMAGEJ, MessageType.QUESTION_MESSAGE, OptionType.YES_NO_OPTION);
 		if(res.equals(Result.CANCEL_OPTION) || res.equals(Result.CLOSED_OPTION) || res.equals(Result.NO_OPTION))
 			return false;
 		return true;
