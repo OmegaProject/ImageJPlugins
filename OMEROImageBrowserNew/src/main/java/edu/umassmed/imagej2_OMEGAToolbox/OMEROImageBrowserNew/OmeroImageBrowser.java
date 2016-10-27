@@ -20,10 +20,14 @@ import org.scijava.ItemIO;
 import org.scijava.command.Command;
 import org.scijava.plugin.Parameter;
 import org.scijava.plugin.Plugin;
+import org.scijava.ui.DialogPrompt.MessageType;
+import org.scijava.ui.DialogPrompt.OptionType;
+import org.scijava.ui.DialogPrompt.Result;
 import org.scijava.ui.UIService;
 
 import edu.umassmed.omega.omero.commons.OmeroGateway;
 import edu.umassmed.omega.omero.commons.OmeroImporterUtilities;
+import edu.umassmed.omega.omero.commons.gui.OmeroPluginGUIConstants;
 
 @Plugin(type = Command.class, headless = true, menuPath = "Plugins>OmegaToolbox>OmeroImageBrowser")
 public class OmeroImageBrowser implements Command {
@@ -90,10 +94,16 @@ public class OmeroImageBrowser implements Command {
 		}
 	}
 	
+	public boolean getConfirmation() {
+		Result res = ui.showDialog(OmeroPluginGUIConstants.LOADING_WARNING, MessageType.QUESTION_MESSAGE, OptionType.YES_NO_OPTION);
+		if(res.equals(Result.CANCEL_OPTION) || res.equals(Result.CLOSED_OPTION) || res.equals(Result.NO_OPTION))
+			return false;
+		return true;
+	}
+	
 	public void loadImage(Long id) {
 		Dataset dataset = (Dataset) op.run(OmeroImageLoader.class, client, id);
 		ui.show(dataset);
-		
 	}
 	
 	public static void main(final String... args) {
