@@ -32,7 +32,7 @@ import edu.umassmed.omega.omero.commons.gui.OmeroPluginGUIConstants;
 @Plugin(type = Command.class, headless = true, menuPath = "Plugins>OmegaToolbox>OmeroImageBrowser")
 public class OmeroImageBrowser implements Command {
 	
-	public static final String LOADING_WARNING_IMAGEJ = "You are trying to load more then 5 image, this could take a long time, are you sure?";
+	public static final String LOADING_WARNING_IMAGEJ = "You are trying to load more than 5 images, this could take a long time, are you sure?";
 
 	@Parameter(label = "Hostname")
 	private String host = "Localhost";
