@@ -21,8 +21,7 @@
 	<url>TBD</url>
 
 	<properties>
-		<main-class>OmeroImageImporter</main-class>
-		<scijava.jvm.version>1.7</scijava.jvm.version>
+		<scijava.jvm.version>1.8</scijava.jvm.version>
 	</properties>
 
 	<repositories>
@@ -31,6 +30,65 @@
 			<url>http://maven.imagej.net/content/groups/public</url>
 		</repository>
 	</repositories>
+
+	<build>
+		<finalName>${project.artifactId}-${project.version}</finalName>
+		<plugins>
+			<!-- download source code in Eclipse, best practice -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<version>2.10</version>
+				<configuration>
+					<downloadSources>true</downloadSources>
+					<downloadJavadocs>false</downloadJavadocs>
+				</configuration>
+			</plugin>
+
+			<!-- Set a compiler level -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+
+			<!-- Maven Shade Plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>3.0.0</version>
+				<executions>
+					<!-- Run shade goal on package phase -->
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+            		<minimizeJar>true</minimizeJar>
+            		<filters>
+		                <filter>
+		                    <artifact>*:*</artifact>
+		                    <excludes>
+		                        <exclude>META-INF/license/**</exclude>
+		                        <exclude>META-INF/*</exclude>
+		                        <exclude>META-INF/maven/**</exclude>
+		                        <exclude>LICENSE</exclude>
+		                        <exclude>NOTICE</exclude>
+		                        <exclude>/*.txt</exclude>
+		                        <exclude>build.properties</exclude>
+		                    </excludes>
+		                </filter>
+		            </filters>
+		        </configuration>
+			</plugin>
+		</plugins>
+	</build>
 
 	<dependencies>
 		<dependency>

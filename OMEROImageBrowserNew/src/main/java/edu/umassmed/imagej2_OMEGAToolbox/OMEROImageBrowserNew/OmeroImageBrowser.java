@@ -90,7 +90,7 @@ public class OmeroImageBrowser implements Command {
 		
 		try {
 			panel.updateVisualizationMenu();
-		} catch (ServerError ex) {
+		} catch (Exception ex) {
 			//TODO Throw error dialog
 			ex.printStackTrace();
 		}
