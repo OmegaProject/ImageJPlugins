@@ -1,5 +1,4 @@
 # ImageJPlugins
-
 This repository contains ImageJ Plugins that have been generated as part of the OMEGA project.
 Specifically, the repository contains:
 
